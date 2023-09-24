@@ -7,13 +7,13 @@ import java.util.List;
 public class SubsequenceWithKSum {
     static List<List<Integer>> resultList = new ArrayList<>();
     public static void main(String[] args) {
-        subsequenceWithKsum(new ArrayList<>(Arrays.asList(1, 2, 1)) , new ArrayList<>(), 0, 0, 2);
+        subsequenceWithKsum(new ArrayList<>(Arrays.asList(10,1,2,7,6,5)) , new ArrayList<>(), 0, 0, 8);
         System.out.println(resultList.toString());
     }
 
     private static void subsequenceWithKsum(List<Integer> inputList, List<Integer> currentList,
                                             int i, int currentSum, int targetSum) {
-        if(i==inputList.size()) {
+        if(currentSum>targetSum || i==inputList.size()) {
             if(currentSum == targetSum) {
                 resultList.add(List.copyOf(currentList));
             }
