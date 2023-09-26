@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class treeDFS {
+public class TreeDFS {
     public static void main(String args[]) {
         Node root = buildTree(new ArrayList<>(Arrays.asList(0,1,2,3,4,5)), 0);
         List<Integer> resultList = new ArrayList<>();

@@ -2,26 +2,31 @@ package graph;
 
 import java.util.*;
 
-public class graphDFS {
-    public static void main(String args[]) {
+public class GraphBFS {
+    public static void main(String[] args) {
         Node root = createGraph();
-        List<Integer> resultList = new ArrayList<>();
-        findGraphDFS(root, new HashSet<>(), resultList);
+        List<Node> resultList = new ArrayList<>();
+        findGraphBFS(root, resultList, new LinkedList<>(), new HashSet<>());
         System.out.println(resultList);
     }
 
-    private static void findGraphDFS(Node root, Set<Integer> visitedSet, List<Integer> resultList) {
-        if(null == root)
+    private static void findGraphBFS(Node root, List<Node> resultList, Queue<Node> bfsQueue, Set<Node> visitedSet) {
+        if(root == null)
             return;
-        if(visitedSet.contains(root.data))
+        if(visitedSet.contains(root))
             return;
-        visitedSet.add(root.data);
-        resultList.add(root.data);
-        for (Node connectedNode : root.neighbors) {
-            findGraphDFS(connectedNode, visitedSet, resultList);
+        bfsQueue.add(root);
+        while(!bfsQueue.isEmpty()) {
+            Node poppedNode = bfsQueue.poll();
+            visitedSet.add(poppedNode);
+            resultList.add(poppedNode);
+            for (Node connectedNode:
+                 root.neighbors) {
+                if(connectedNode != null)
+                    findGraphBFS(connectedNode, resultList, bfsQueue, visitedSet);
+            }
         }
     }
-
 
     public static Node createGraph() {
         Node node1 = new Node(1);
@@ -49,10 +54,9 @@ public class graphDFS {
         return node1;
     }
 
-    static class Node {
+    public static class Node {
         int data;
         List<Node> neighbors;
-
         public Node(int data) {
             this.data = data;
             this.neighbors = new ArrayList<>();
@@ -69,6 +73,13 @@ public class graphDFS {
 
         public void addNeighbors(List<Node> list) {
             this.neighbors.addAll(list);
+        }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "data=" + data +
+                    '}';
         }
     }
 }

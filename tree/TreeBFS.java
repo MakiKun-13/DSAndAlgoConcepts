@@ -2,7 +2,7 @@ package tree;
 
 import java.util.*;
 
-public class treeBFS {
+public class TreeBFS {
     public static void main(String args[]) {
         Node root = buildTree(new ArrayList<>(Arrays.asList(0,1,2,3,4,5)), 0);
         List<Node> resultList = new ArrayList<>();
