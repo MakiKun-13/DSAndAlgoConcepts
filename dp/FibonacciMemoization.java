@@ -2,7 +2,7 @@ package dp;
 
 import java.util.Arrays;
 
-public class FibonacciDPMemoization {
+public class FibonacciMemoization {
     static int[] dp;
     public static void main(String args[]) {
         int n = 5;
@@ -14,7 +14,7 @@ public class FibonacciDPMemoization {
     private static int findFibonacci(int n, int[] dp) {
         if(n<=1)
             return n;
-        if(FibonacciDPMemoization.dp[n]!=-1)
+        if(FibonacciMemoization.dp[n]!=-1)
             return dp[n];
         return dp[n] = findFibonacci(n-1, dp) +findFibonacci(n-2, dp);
     }

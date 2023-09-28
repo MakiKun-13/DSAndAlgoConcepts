@@ -1,6 +1,6 @@
 package dp;
 
-public class FibonacciDPTabulation {
+public class FibonacciTabulation {
     public static void main(String args[]) {
         System.out.println(findFibonacci(6));
     }
