@@ -2,7 +2,7 @@ package dp;
 
 import java.util.Arrays;
 
-public class FrogJump {
+public class FrogJumpMemoization {
     public static void main(String args[]) {
         System.out.println(frogJump(4, new int[] {10, 20, 30, 10}));
     }
@@ -29,4 +29,6 @@ public class FrogJump {
 }
 /**
  *
+ *Time Complexity: O(n)
+ * Space Complexity: O(n) + O(n) (Recursion space + dp array)
  */
