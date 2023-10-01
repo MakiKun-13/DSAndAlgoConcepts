@@ -11,19 +11,21 @@ public class GraphBFS {
     }
 
     private static void findGraphBFS(Node root, List<Node> resultList, Queue<Node> bfsQueue, Set<Node> visitedSet) {
-        if(root == null)
+        if (root == null)
             return;
-        if(visitedSet.contains(root))
+        if (visitedSet.contains(root))
             return;
         bfsQueue.add(root);
-        while(!bfsQueue.isEmpty()) {
+        resultList.add(root);
+        visitedSet.add(root);
+        while (!bfsQueue.isEmpty()) {
             Node poppedNode = bfsQueue.poll();
-            visitedSet.add(poppedNode);
-            resultList.add(poppedNode);
-            for (Node connectedNode:
-                 root.neighbors) {
-                if(connectedNode != null)
-                    findGraphBFS(connectedNode, resultList, bfsQueue, visitedSet);
+            for (Node connectedNode : poppedNode.neighbors) {
+                if(!visitedSet.contains(connectedNode)) {
+                    bfsQueue.add(connectedNode);
+                    resultList.add(connectedNode);
+                    visitedSet.add(connectedNode);
+                }
             }
         }
     }
@@ -57,6 +59,7 @@ public class GraphBFS {
     public static class Node {
         int data;
         List<Node> neighbors;
+
         public Node(int data) {
             this.data = data;
             this.neighbors = new ArrayList<>();
