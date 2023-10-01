@@ -18,7 +18,6 @@ public class TreeDFS {
             findTreeDFS(root.left, resultList);
             findTreeDFS(root.right, resultList);
         }
-        return;
     }
 
     private static Node buildTree(List<Integer> input, int index) {
