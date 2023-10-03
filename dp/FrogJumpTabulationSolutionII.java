@@ -1,6 +1,6 @@
 package dp;
 
-public class FrogJumpTabulationII {
+public class FrogJumpTabulationSolutionII {
     public static void main(String args[]) {
         System.out.println(frogJump(4, new int[] {10, 20, 30, 10}));
     }
