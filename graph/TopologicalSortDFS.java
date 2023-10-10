@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
-public class TopologicalSort {
+public class TopologicalSortDFS {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(findTopologicalOrder(new ArrayList<>(Arrays.asList(new ArrayList<>(), new ArrayList<>(),
                 new ArrayList<>(List.of(3)), new ArrayList<>(List.of(1)), new ArrayList<>(List.of(0)),
@@ -30,13 +30,13 @@ public class TopologicalSort {
         return ans;
     }
 
-    private static void dfs(List<List<Integer>> adj, int i, Stack<Integer> nodeStack) {
-        visited[i] = 1;
-        for(int j: adj.get(i)) {                            // Explore the node first
+    private static void dfs(List<List<Integer>> adj, int node, Stack<Integer> nodeStack) {
+        visited[node] = 1;
+        for(int j: adj.get(node)) {                            // Explore the node first
             if(visited[j]==0) {
                 dfs(adj, j, nodeStack);
             }
         }
-        nodeStack.push(i);                                  // Then add it into the Stack
+        nodeStack.push(node);                                  // Then add it into the Stack
     }
 }

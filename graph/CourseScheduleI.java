@@ -8,7 +8,7 @@ import java.util.Queue;
 /**
  * Using Khan's algorithm
  */
-public class CourseSchedule {
+public class CourseScheduleI {
     public static void main(String[] args) {
         System.out.println(canFinish(2, new int[][] {{1,0}, {0,1}}));
     }
@@ -21,8 +21,8 @@ public class CourseSchedule {
         for(int i=0; i<numCourses; i++) {
             adjList.add(new ArrayList<>());
         }
-        for(int i=0; i<prerequisites.length; i++) {
-            adjList.get(prerequisites[i][1]).add(prerequisites[i][0]);
+        for (int[] prerequisite : prerequisites) {
+            adjList.get(prerequisite[1]).add(prerequisite[0]);
         }
 
         int[] degree = new int[numCourses];
