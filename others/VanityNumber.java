@@ -20,6 +20,7 @@ public class VanityNumber {
         Map<Character, Character> characterMap = getCharMap();
         // Creating the numerical string for the codes
         List<String> numericCodes = new ArrayList<>();
+        List<String> toRemove = new ArrayList<>();
         for(String s : codes) {
             String regex = "\\d+";
             if(!s.matches(regex)) {
@@ -29,9 +30,11 @@ public class VanityNumber {
                 }
                 numericCodes.add(str);
             }
-            else {
-                numericCodes.add(s);
-            }
+            else
+                toRemove.add(s);
+        }
+        for(String s: toRemove) {
+            numericCodes.remove(s);
         }
         List<String> result = new ArrayList<>();
         for(String number: numbers) {
