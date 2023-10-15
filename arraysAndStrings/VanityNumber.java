@@ -1,4 +1,4 @@
-package others;
+package arraysAndStrings;
 
 import java.util.*;
 
