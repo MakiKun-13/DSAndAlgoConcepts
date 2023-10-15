@@ -30,6 +30,6 @@ public class MinimumPathSumBacktracking {
     }
 }
 /**
- * Time Complexity: O(2^n)
- * Space Complexity: O(n*n)
+ * Time Complexity: O(m*n)
+ * Space Complexity: O(m*n)
  */
