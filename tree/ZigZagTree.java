@@ -19,7 +19,7 @@ public class ZigZagTree {
         Queue<BinaryTreeNode<Integer>> bfsQueue = new LinkedList<>();
         bfsQueue.add(root);
         boolean leftToRight = true;
-        List<List<Integer>> levelList = new ArrayList<>();
+        List<Integer> levelList = new ArrayList<>();
 
         while(!bfsQueue.isEmpty()) {
             List<Integer> temp = new ArrayList<>();
@@ -38,14 +38,10 @@ public class ZigZagTree {
             if(!leftToRight)
                 Collections.reverse(temp);
 
-            levelList.add(temp);
+            levelList.addAll(temp);
             leftToRight = !leftToRight;
         }
-        List<Integer> resultList = new ArrayList<>();
-        for(List<Integer> list : levelList) {
-            resultList.addAll(list);
-        }
-        return resultList;
+        return levelList;
     }
     static class BinaryTreeNode<T> {
         T data;
