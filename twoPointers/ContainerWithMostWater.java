@@ -1,4 +1,4 @@
-package arraysAndStrings;
+package twoPointers;
 
 public class ContainerWithMostWater {
     public static void main(String[] args) {
