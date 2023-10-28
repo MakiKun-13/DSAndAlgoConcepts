@@ -1,6 +1,6 @@
 package recursion;
 
-public class ValidSudoku {
+public class SolvableSudoku {
     public static void main(String[] args) {
         System.out.println(sudokuSolve(new char[][]{{'.','8','9','.','4','.','6','.','5'},
                 {'.','7','.','.','.','8','.','4','1'},
